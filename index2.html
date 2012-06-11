@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+<script src="http://threedubmedia.googlecode.com/files/jquery.event.drag-1.5.min.js"></script>
+<script src="minimap.js"></script>
+<script>
+function onLoad(){
+map = minimap.map(document.getElementById('map'))
+center = minimap.coordinate(52.5309599999, 13.384850000000057);
+map.display(center);
+$('button').each(function(uninteresting, btn){
+  $(btn).click(function(){
+    (map[btn.id])();
+  });
+});
+
+}
+</script>
+</head>
+<body onload="onLoad()">
+<button id="zoom_in">+</button>
+<button id="zoom_out">-</button>
+<button id="pan_left">&lt;</button>
+<button id="pan_up">^</button>
+<button id="pan_down">v</button>
+<button id="pan_right">&gt;</button>
+<br/>
+<canvas id="map" width="800" height="600"></canvas>
+</body>
+</html>
